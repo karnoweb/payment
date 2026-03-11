@@ -1,0 +1,36 @@
+{
+  "name": "karnoweb/payment",
+  "description": "A clean and extensible Laravel payment package for Iranian gateways.",
+  "type": "library",
+  "license": "MIT",
+  "keywords": [
+    "laravel",
+    "payment",
+    "gateway",
+    "zarinpal",
+    "iran"
+  ],
+  "require": {
+    "php": "^8.2",
+    "illuminate/support": "^11.0|^12.0",
+    "illuminate/http": "^11.0|^12.0",
+    "guzzlehttp/guzzle": "^7.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Karnoweb\\Payment\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Karnoweb\\Payment\\PaymentServiceProvider"
+      ],
+      "aliases": {
+        "Payment": "Karnoweb\\Payment\\Facades\\Payment"
+      }
+    }
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}
