@@ -1,0 +1,27 @@
+/vendor
+composer.lock
+composer.phar
+
+# PHPUnit
+.phpunit.result.cache
+coverage/
+
+# IDE
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Testing
+.env
+.env.testing
+
+# Misc
+node_modules/

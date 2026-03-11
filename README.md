@@ -148,3 +148,7 @@ Payment::driver('mellat')->purchase();Payment::driver('mellat')->purchase();
 ## License
 
 MIT
+
+![Tests](https://github.com/karnoweb/payment/actions/workflows/tests.yml/badge.svg)
+![License](https://img.shields.io/github/license/karnoweb/payment)
+![PHP Version](https://img.shields.io/badge/php-8.2%2B-blue)
