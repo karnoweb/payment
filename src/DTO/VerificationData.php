@@ -12,5 +12,12 @@ final class VerificationData
         public readonly string $transactionId,
         public readonly Money $amount,
         public readonly ?string $orderId = null,
-    ) {}
+        public readonly array $meta = []
+    ) {
+    }
+
+    public function meta(string $key): mixed
+    {
+        return $this->meta[$key] ?? null;
+    }
 }

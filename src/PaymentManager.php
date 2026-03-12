@@ -37,27 +37,26 @@ class PaymentManager
             return $this->drivers[$name];
         }
 
-        // ✅ custom driver first
+        // ✅ 1. Custom drivers (highest priority)
         if (isset($this->customCreators[$name])) {
             return $this->drivers[$name] =
                 $this->customCreators[$name]($this->app);
         }
 
-        $config = $this->app['config']["payment.drivers.$name"] ?? null;
+        // ✅ 2. Built-in registry
+        if (\Karnoweb\Payment\Support\DriverRegistry::has($name)) {
 
-        if (! $config) {
-            throw new InvalidArgumentException("Payment driver [$name] not configured.");
+            $class = \Karnoweb\Payment\Support\DriverRegistry::get($name);
+
+            $config = $this->app['config']["payment.drivers.$name"] ?? [];
+
+            return $this->drivers[$name] =
+                $this->app->make($class, ['config' => $config]);
         }
 
-        $driverClass = match ($name) {
-            'zarinpal' => \Karnoweb\Payment\Drivers\Zarinpal\ZarinpalDriver::class,
-            'idpay' => \Karnoweb\Payment\Drivers\IDPay\IDPayDriver::class,
-            'fake' => \Karnoweb\Payment\Drivers\Fake\FakeDriver::class,
-            default => throw new InvalidArgumentException("Payment driver [$name] not supported."),
-        };
-
-        return $this->drivers[$name] =
-            $this->app->make($driverClass, ['config' => $config]);
+        throw new InvalidArgumentException(
+            "Payment driver [$name] is not supported."
+        );
     }
 
     protected function getDefaultDriver(): string
