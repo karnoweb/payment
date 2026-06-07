@@ -36,7 +36,7 @@ class ZarinpalDriver implements Gateway
             $response = $this->client->post('/pg/v4/payment/request.json', [
                 'json' => [
                     'merchant_id' => $this->merchantId,
-                    'amount' => $data->amount->rial(),
+                    'amount' => $data->amount->toRial(),
                     'callback_url' => $data->callbackUrl,
                     'description' => $data->description ?? 'Payment',
                     'metadata' => array_filter([
@@ -81,7 +81,7 @@ class ZarinpalDriver implements Gateway
             $response = $this->client->post('/pg/v4/payment/verify.json', [
                 'json' => [
                     'merchant_id' => $this->merchantId,
-                    'amount' => $data->amount->rial(),
+                    'amount' => $data->amount->toRial(),
                     'authority' => $data->transactionId,
                 ],
             ]);

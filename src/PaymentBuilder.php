@@ -102,7 +102,7 @@ class PaymentBuilder
 
         $result = $this->gateway->purchase($data);
 
-        if ($result->failed()) {
+        if ($result->isFailed()) {
             Event::dispatch(new PaymentFailed(
                 $this->driverName,
                 $result->message() ?? 'Payment failed'

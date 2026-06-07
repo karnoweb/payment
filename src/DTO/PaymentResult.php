@@ -37,7 +37,7 @@ final class PaymentResult
         return $this->successful;
     }
 
-    public function failed(): bool
+    public function isFailed(): bool
     {
         return ! $this->successful;
     }

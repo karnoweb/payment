@@ -24,7 +24,7 @@ class MellatDriver extends AbstractSoapGateway
             'userName' => $this->config['username'],
             'userPassword' => $this->config['password'],
             'orderId' => $orderId,
-            'amount' => $data->amount->rial(),
+            'amount' => $data->amount->toRial(),
             'localDate' => $this->nowDate(),
             'localTime' => $this->nowTime(),
             'additionalData' => $data->description ?? '',

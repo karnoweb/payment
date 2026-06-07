@@ -22,7 +22,7 @@ class ParsianDriver extends AbstractSoapGateway
         $params = [
             'requestData' => [
                 'LoginAccount' => $this->config['pin'],
-                'Amount' => $data->amount->rial(),
+                'Amount' => $data->amount->toRial(),
                 'OrderId' => $orderId,
                 'CallBackUrl' => $data->callbackUrl,
             ]

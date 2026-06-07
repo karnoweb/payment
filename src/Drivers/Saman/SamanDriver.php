@@ -27,7 +27,7 @@ class SamanDriver implements Gateway
                 'form_params' => [
                     'action' => 'token',
                     'TerminalId' => $this->config['terminal_id'],
-                    'Amount' => $data->amount->rial(),
+                    'Amount' => $data->amount->toRial(),
                     'ResNum' => $data->orderId ?? time(),
                     'RedirectUrl' => $data->callbackUrl,
                 ]

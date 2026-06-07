@@ -37,7 +37,7 @@ class IDPayDriver implements Gateway
                     'X-SANDBOX' => $this->sandbox ? '1' : '0',
                 ],
                 'json' => [
-                    'amount' => $data->amount->rial(),
+                    'amount' => $data->amount->toRial(),
                     'callback' => $data->callbackUrl,
                     'description' => $data->description ?? 'Payment',
                     'order_id' => $data->orderId ?? uniqid(),

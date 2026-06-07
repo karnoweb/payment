@@ -32,17 +32,12 @@ final class Money
         return new self($amount, 'rial');
     }
 
-    public static function fromRial(int $amount): self
-    {
-        return new self($amount, 'rial');
-    }
-
-    public function rial(): int
+    public function toRial(): int
     {
         return $this->amount;
     }
 
-    public function toman(): int
+    public function toToman(): int
     {
         return intdiv($this->amount, 10);
     }
