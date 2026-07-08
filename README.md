@@ -4,8 +4,8 @@ A clean, extensible Laravel payment framework for Iranian gateways.
 
 ![Tests](https://github.com/karnoweb/payment/actions/workflows/tests.yml/badge.svg)
 ![License](https://img.shields.io/github/license/karnoweb/payment)
-![PHP](https://img.shields.io/badge/PHP-8.2%2B-777BB4?logo=php)
-![Laravel](https://img.shields.io/badge/Laravel-11%20%7C%2012-FF2D20?logo=laravel)
+![PHP](https://img.shields.io/badge/PHP-8.3%2B-777BB4?logo=php)
+![Laravel](https://img.shields.io/badge/Laravel-13-FF2D20?logo=laravel)
 
 ---
 
@@ -18,14 +18,18 @@ A clean, extensible Laravel payment framework for Iranian gateways.
 - Event-driven architecture
 - Fake driver for testing
 - SOAP & REST support
-- Laravel 11 & 12 ready
+- Laravel 13 ready
 
 ---
 
 ## 📦 Installation
 
 ```bash
-composer require karnoweb/payment
+# Laravel 13
+composer require karnoweb/payment:^13.0
+
+# Laravel 11–12
+composer require karnoweb/payment:^1.0
 ```
 
 ```bash
